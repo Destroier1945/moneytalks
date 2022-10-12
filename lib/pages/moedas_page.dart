@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneytalks/models/moeda.dart';
+import 'package:moneytalks/pages/moedas_detalhes_page.dart';
 import 'package:moneytalks/repositories/moeda_repositories.dart';
 import 'package:intl/intl.dart';
 
@@ -45,7 +46,9 @@ class _MoedasPageState extends State<MoedasPage> {
 
     }
   }
-
+mostrarDetalhes(Moeda moeda){
+  Navigator.push(context, MaterialPageRoute(builder: (_)=> MoedasDetalhesPage(moeda: moeda)));
+}
   @override
   Widget build(BuildContext context) {
 
@@ -80,21 +83,20 @@ class _MoedasPageState extends State<MoedasPage> {
                       : selecionadas.add(tabela[moeda]);
                 });
               },
-
+              onTap: ()=> mostrarDetalhes(tabela[moeda]),
             );
           },
           padding: EdgeInsets.all(16),
           separatorBuilder: (_,__) =>Divider(),
           itemCount: tabela.length),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: selecionadas.isNotEmpty
-      ?FloatingActionButton.extended(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: selecionadas.isNotEmpty
+            ?FloatingActionButton.extended(
           onPressed: (){},
           icon: Icon(Icons.star),
           label: Text('Favoritar',style: TextStyle(
             letterSpacing: 0,
             fontWeight: FontWeight.bold,
-
           ),
           ),
       )

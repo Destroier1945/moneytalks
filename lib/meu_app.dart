@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneytalks/pages/home_page.dart';
 import 'package:moneytalks/pages/moedas_page.dart';
 
 class MeuApp extends StatelessWidget {
@@ -10,7 +11,7 @@ class MeuApp extends StatelessWidget {
       title: 'Moneytalks',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.lightGreen),
-      home: MoedasPage(),
+      home: HomePage(),
     );
   }
 }
